@@ -5,7 +5,7 @@ import {Alert, Button, Form} from 'react-bootstrap'
 import Auth from '../utils/auth'
 import {useMutation} from '@apollo/react-hooks'
 import {LOGIN_USER} from '../utils/mutations'
-import {saveBookIds} from '../utils/localStorage'
+import {getSavedBookIds, saveBookIds} from '../utils/localStorage'
 
 const LoginForm = () => {
     const [loginUser] = useMutation(LOGIN_USER)
@@ -33,9 +33,11 @@ const LoginForm = () => {
                 variables: userFormData
             })
             console.log(data)
-            if (data.login.user.savedBooks) {
-                saveBookIds(data.login.user.savedBooks)
+            let savedBookIds = data.login.user?.savedBooks?.map(book => book.bookId) ?? []
+            if (savedBookIds) {
+                saveBookIds(savedBookIds)
             }
+            console.log(getSavedBookIds())
             Auth.login(data.login.token)
         } catch (err) {
             console.error(err)
