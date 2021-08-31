@@ -1,6 +1,6 @@
 ![Search Books](./docs/app-screenshot.png)
 
-# [Book Search](https://sleepy-ravine-23544.herokuapp.com/){:target="_blank"}
+# <a href="https://sleepy-ravine-23544.herokuapp.com/" target="_blank">Book Search</a>
 Where you can save your favorite books to a list and view them!
 
 # Setup dev environment
