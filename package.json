@@ -8,7 +8,8 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
-    "deploy": "git push heroku master"
+    "deploy": "git push heroku master",
+    "heroku-postbuild": "cd client && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,7 @@
   "devDependencies": {
     "concurrently": "^5.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "heroku": "^7.59.0"
+  }
 }
